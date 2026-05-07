@@ -22,10 +22,8 @@ public class Athlete {
     private String lastName;
     private String country;
 
+    private int totalPoints;
+
     @OneToMany(cascade = CascadeType.ALL)
     private List<Result> results = new ArrayList<>();
-
-    public int getTotalPoints() {
-        return results.stream().mapToInt(Result::getPoints).sum();
-    }
 }

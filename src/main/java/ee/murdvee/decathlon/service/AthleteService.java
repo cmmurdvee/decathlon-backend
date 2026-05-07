@@ -46,6 +46,7 @@ public class AthleteService {
         result.setPoints(points);
 
         athlete.getResults().add(result);
+        athlete.setTotalPoints(athlete.getResults().stream().mapToInt(Result::getPoints).sum());
         return athleteRepository.save(athlete);
     }
 }
